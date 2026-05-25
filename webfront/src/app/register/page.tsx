@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { apiFetch } from "@/lib/api";
 
@@ -17,7 +17,7 @@ type RegisterResponse = {
     accessToken: string;
 };
 
-export default function RegisterPage() {
+function RegisterPageContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
 
@@ -159,5 +159,13 @@ export default function RegisterPage() {
                 </a>
             </form>
         </main>
+    );
+}
+
+export default function RegisterPage() {
+    return (
+        <Suspense fallback={<main className="flex min-h-screen items-center justify-center bg-black px-6 text-white">Carregando...</main>}>
+            <RegisterPageContent />
+        </Suspense>
     );
 }

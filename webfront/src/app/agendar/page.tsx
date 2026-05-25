@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { apiFetch } from "@/lib/api";
 
@@ -34,7 +34,7 @@ type AvailableTimesResponse = {
   message?: string;
 };
 
-export default function AgendarPage() {
+function AgendarPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const serviceIdFromUrl = searchParams.get("serviceId");
@@ -472,5 +472,13 @@ export default function AgendarPage() {
       )}
 
     </main>
+  );
+}
+
+export default function AgendarPage() {
+  return (
+    <Suspense fallback={<main className="min-h-screen bg-zinc-950 px-6 py-16 text-white">Carregando...</main>}>
+      <AgendarPageContent />
+    </Suspense>
   );
 }

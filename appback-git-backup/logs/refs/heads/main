@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 761f2189abb45108063e625c5a82f36b666b93e7 Gabriel Santos <gabrielferreirasantos723@gmail.com> 1778794422 +0100	commit (initial): Commit appbackend
+761f2189abb45108063e625c5a82f36b666b93e7 761f2189abb45108063e625c5a82f36b666b93e7 Gabriel Santos <gabrielferreirasantos723@gmail.com> 1778794502 +0100	Branch: renamed refs/heads/master to refs/heads/main
+761f2189abb45108063e625c5a82f36b666b93e7 761f2189abb45108063e625c5a82f36b666b93e7 Gabriel Santos <gabrielferreirasantos723@gmail.com> 1778794670 +0100	Branch: renamed refs/heads/main to refs/heads/main
+761f2189abb45108063e625c5a82f36b666b93e7 6cf3e2825af205f027b04822b395322873e08dfe Gabriel Santos <gabrielferreirasantos723@gmail.com> 1778797307 +0100	rebase (finish): refs/heads/main onto acda281d20255757e1d6a405673a541277252f6e

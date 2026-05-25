@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiFetch } from "@/lib/api";
 import { useSearchParams } from "next/navigation";
@@ -17,7 +17,7 @@ type LoginResponse = {
     accessToken: string;
 };
 
-export default function LoginPage() {
+function LoginPageContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const redirectParam = searchParams.get("redirect");
@@ -135,5 +135,13 @@ export default function LoginPage() {
                 </a>
             </form>
         </main>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={<main className="flex min-h-screen items-center justify-center bg-black px-6 text-white">Carregando...</main>}>
+            <LoginPageContent />
+        </Suspense>
     );
 }
