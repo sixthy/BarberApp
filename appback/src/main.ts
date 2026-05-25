@@ -11,16 +11,20 @@ async function bootstrap() {
   app.use(helmet());
 
 
-  const frontUrl =
-    configService.get<string>('FRONTEND_URLS')?.split(',') ??
-    ['http://localhost:3000',];
+  const frontendUrls =
+    configService.get<string>('FRONTEND_URLS') ??
+    configService.get<string>('FRONTEND_URL') ??
+    'http://localhost:3000';
 
   app.enableCors({
-    origin: frontUrl.map((url) => url.trim()),
+    origin: frontendUrls
+      .split(',')
+      .map((url) => url.trim())
+      .filter(Boolean),
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
-  })
+  });
 
 
   app.useGlobalPipes(
