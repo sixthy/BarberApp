@@ -35,7 +35,6 @@ export default function Header() {
     loadUser();
   }, []);
 
-  // Fecha menu ao clicar fora
   useEffect(() => {
     if (!menuOpen) return;
     const handler = (e: MouseEvent) => {
@@ -61,7 +60,6 @@ export default function Header() {
 
   return (
     <header id="main-header" className="relative z-50 w-full border-b border-white/10 bg-black">
-      {/* Desktop */}
       <div className="relative hidden h-24 w-full px-8 text-white md:block">
         <nav className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-16">
           <a href="#nav" className="text-sm font-semibold hover:text-zinc-400 transition-colors">INICIO</a>
@@ -105,7 +103,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile */}
+      
       <div className="flex h-16 items-center justify-between px-4 md:hidden">
         <a href="#nav">
           <Image src="/logobarb.jpg" alt="barb logo" width={48} height={48} priority
@@ -127,7 +125,6 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Dropdown mobile */}
       {menuOpen && (
         <div className="border-t border-white/10 bg-black px-4 pb-4 md:hidden">
           <nav className="flex flex-col gap-1 pt-2 text-white">
