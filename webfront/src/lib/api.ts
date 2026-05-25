@@ -12,12 +12,12 @@ export async function apiFetch<T>(
 
   const response = await fetch(`${API_URL}${path}`, {
     ...rest,
+    cache: "no-store",
     headers: {
       "Content-Type": "application/json",
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...headers,
     },
-    cache: "no-store",
   });
 
   if (!response.ok) {

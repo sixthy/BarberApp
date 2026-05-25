@@ -14,7 +14,9 @@ export default async function Services() {
   let services: BarberService[] = [];
 
   try {
-    services = await apiFetch<BarberService[]>("/services/active");
+    services = await apiFetch<BarberService[]>("/services/active", {
+      cache: "no-store",
+    });
   } catch (error) {
     console.error("Erro ao carregar serviços:", error);
   }
